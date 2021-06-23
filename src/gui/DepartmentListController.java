@@ -63,7 +63,7 @@ public class DepartmentListController implements Initializable {
 		tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
 
 		Stage stage = (Stage) Main.getMainScene().getWindow();
-		tableViewDepartment.prefWidthProperty().bind(stage.heightProperty());
+		tableViewDepartment.prefHeightProperty().bind(stage.heightProperty());
 
 	}
 
@@ -83,6 +83,7 @@ public class DepartmentListController implements Initializable {
 			
 			DepartmentFormController controller = loader.getController();
 			controller.setDepartment(obj);
+			controller.setDepartmentService(new DepartmentService());
 			controller.updateFormData();
 			
 			Stage dialogStage = new Stage();
