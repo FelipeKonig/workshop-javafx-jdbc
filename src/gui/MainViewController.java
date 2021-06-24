@@ -32,7 +32,7 @@ public class MainViewController implements Initializable {
 
 	@FXML
 	public void onMenuItemSellerAction() {
-		loadView("/gui/SellerList.fxml",(SellerListController controller) -> {
+		loadView("/gui/SellerList.fxml", (SellerListController controller) -> {
 			controller.setSellerService(new SellerService());
 			controller.updateTableView();
 		});
@@ -40,7 +40,7 @@ public class MainViewController implements Initializable {
 
 	@FXML
 	public void onMenuItemDepartmentAction() {
-		loadView("/gui/DepartmentList.fxml",(DepartmentListController controller) -> {
+		loadView("/gui/DepartmentList.fxml", (DepartmentListController controller) -> {
 			controller.setDepartmentService(new DepartmentService());
 			controller.updateTableView();
 		});
@@ -54,8 +54,6 @@ public class MainViewController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
-
 	}
 
 	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingFunction) {
@@ -71,7 +69,7 @@ public class MainViewController implements Initializable {
 			mainVBox.getChildren().clear();
 			mainVBox.getChildren().add(mainMenu);
 			mainVBox.getChildren().addAll(newVbox.getChildren());
-			
+
 			T controller = loader.getController();
 			initializingFunction.accept(controller);
 
